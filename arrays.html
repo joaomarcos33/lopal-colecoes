@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+       // Lista inicial de alunos
+let alunos = ["Aline", "arthur", "barbara", "Nathaly", "Vinicios", "gabriel"];
+
+function adicionarNomes() {
+  // Função que controla a interação com o usuário
+  function perguntarNome() {
+    const resposta = prompt("Deseja adicionar um nome à lista de alunos? (sim/não)").toLowerCase();
+    
+    if (resposta === "sim") {
+      const nome = prompt("Digite o nome do aluno:");
+      alunos.push(nome);
+      perguntarNome(); // Chama a função novamente se o usuário quiser adicionar mais nomes
+    } else if (resposta === "não") {
+      // Exibe a lista completa de alunos
+      alert("Lista de alunos completa:\n" + alunos.join("\n"));
+    } else {
+      alert("Resposta inválida. Por favor, digite 'sim' ou 'não'.");
+      perguntarNome(); // Chama a função novamente para nova tentativa
+    }
+  }
+
+  // Inicia a interação
+  perguntarNome();
+}
+
+// Chama a função para começar o processo
+adicionarNomes();
+        
+    </script>
+</body>
+</html>
