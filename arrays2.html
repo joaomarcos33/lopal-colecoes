@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+  <button> type = "button" onclick "">adicionar alunos</button> 
+  <br>
+  <output></output>
     <script>
         
 let alunos = ["Aline", "Juliana", "Leticia", "Nathaly", "Vinicios", "Arthur"];
@@ -19,17 +22,15 @@ let alunos = ["Aline", "Juliana", "Leticia", "Nathaly", "Vinicios", "Arthur"];
       perguntarNome(); 
     } else if (resposta === "não") {
       
-      alert("Lista de alunos completa:\n" + alunos.join("\n"));
+      alert("Lista de alunos completa" + alunos.join("\n"));
     } else {
       alert("Resposta inválida. Por favor, digite 'sim' ou 'não'.");
       perguntarNome(); 
     }
   }
 
-  
-  perguntarNome();
 
-adicionarNomes();
+
     </script>
 </body>
 </html>

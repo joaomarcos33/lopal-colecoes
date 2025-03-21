@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrays-solução</title>
+</head>
+<body>
+    <button type="button" onclick="adicionarAlunos()">Adicionar alunos</button> 
+    <br>
+    <button type="button" onclick="removerAlunos()">Remover alunos</button>
+    <br>
+    <output></output>
+
+</body>
+<script>
+    let alunos = ["Aline", "Juliana", "Leticia", "Nathaly", "Vinicios", "Arthur"];
+
+    function imprimirAlunos() {
+        let outputContent = '';  
+        for (let indice = 0; indice < alunos.length; indice++) {  
+            outputContent += alunos[indice] + '<br>';  
+        }
+        document.querySelector('output').innerHTML = outputContent;  
+    }
+
+    function adicionarAlunos() {
+        let novoAluno = prompt('Digite o nome do(a) aluno(a):');
+        if (novoAluno) {
+            alunos.push(novoAluno);
+            imprimirAlunos(); 
+        }
+    }
+
+    function removerAluno() {
+        let alunoParaRemover = prompt('Digite o nome do aluno(a) que deseja remover:');
+        let index = alunos.indexOf(alunoParaRemover);
+
+        if (index !== -1) {
+            alunos.splice(index, 1); 
+            imprimirAlunos();  
+        } else {
+            alert('Aluno não encontrado!');
+        }
+    }
+
+    imprimirAlunos();  
+</script>
+</html>
