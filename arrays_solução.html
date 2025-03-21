@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
 <body>
     <button type="button" onclick="adicionarAlunos()">Adicionar alunos</button> 
     <br>
-    <button type="button" onclick="removerAlunos()">Remover alunos</button>
+    <button type="button" onclick="removerAluno()">Remover aluno por nome</button>
     <br>
     <output></output>
 
@@ -21,24 +21,34 @@
         for (let indice = 0; indice < alunos.length; indice++) {  
             outputContent += alunos[indice] + '<br>';  
         }
-        document.querySelector('output').innerHTML = outputContent;  
+        document.querySelector('output').innerHTML = outputContent;  //armazena os nomes e os escreve 
     }
 
     function adicionarAlunos() {
         let novoAluno = prompt('Digite o nome do(a) aluno(a):');
         if (novoAluno) {
             alunos.push(novoAluno);
-            imprimirAlunos(); 
+            imprimirAlunos();  //pede ao usuario um nome para ser adicionado na lista
         }
     }
 
     function removerAluno() {
         let alunoParaRemover = prompt('Digite o nome do aluno(a) que deseja remover:');
-        let index = alunos.indexOf(alunoParaRemover);
+        let i = 0;
+        let alunoRemovido = false;
+        
+        while (i < alunos.length) {
+            if (alunos[i] === alunoParaRemover) {
+                alunos[i] = alunos[alunos.length - 1]; // Substitui o aluno removido pelo último aluno
+                alunos.pop();  // Remove o último aluno (que agora é o aluno removido)
+                alunoRemovido = true;
+                break;
+            }
+            i++;
+        }
 
-        if (index !== -1) {
-            alunos.splice(index, 1); 
-            imprimirAlunos();  
+        if (alunoRemovido) {
+            imprimirAlunos();
         } else {
             alert('Aluno não encontrado!');
         }

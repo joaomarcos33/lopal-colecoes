@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+</head>
+<body>
+    <h2>Cadastro de Alunos</h2>
+    <button onclick="cadastrarAluno()">Cadastrar Aluno</button>
+    <button onclick="removerUltimoAluno()">Remover Último Aluno</button>
+    <br><br>
+    <output id="listaAlunos"></output>
+
+    <script>
+        let alunos = [];
+
+        function cadastrarAluno() {
+            let nome = prompt("Nome do aluno:");
+            let idade = prompt("Idade do aluno:");
+            let sesi = prompt("Unidade SESI do aluno:");
+            let possuiPet = prompt("Possui pet? (Sim/Não)");
+
+            let aluno = {
+                nome: nome,
+                idade: idade,
+                sesi: sesi,
+                possuiPet: possuiPet
+            };
+
+            alunos.push(aluno);
+            exibirAlunos();
+        }
+
+        function removerUltimoAluno() {
+            if (alunos.length > 0) {
+                alunos.pop();
+                exibirAlunos();
+            } else {
+                alert("Nenhum aluno para remover!");
+            }
+        }
+
+        function exibirAlunos() {
+            let output = document.getElementById("listaAlunos");
+            output.innerHTML = "";
+            for (let i = 0; i < alunos.length; i++) {
+                output.innerHTML += "Aluno " + (i + 1) + ": " + alunos[i].nome + ", " + alunos[i].idade + " anos, SESI: " + alunos[i].sesi + ", Pet: " + alunos[i].possuiPet + "<br>";
+            }
+        }
+    </script>
+</body>
+</html>
